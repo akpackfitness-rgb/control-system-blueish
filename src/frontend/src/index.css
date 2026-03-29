@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@layer base {
+  /* Light mode */
+  :root {
+    --radius: 0.625rem;
+    --background: 0.96 0.008 255;
+    --foreground: 0.15 0.04 265;
+    --card: 0.99 0.002 255;
+    --card-foreground: 0.15 0.04 265;
+    --popover: 0.99 0.002 255;
+    --popover-foreground: 0.15 0.04 265;
+    --primary: 0.6 0.15 200;
+    --primary-foreground: 0.99 0 0;
+    --secondary: 0.92 0.01 255;
+    --secondary-foreground: 0.2 0.04 265;
+    --muted: 0.9 0.01 255;
+    --muted-foreground: 0.5 0.02 265;
+    --accent: 0.6 0.15 200;
+    --accent-foreground: 0.99 0 0;
+    --destructive: 0.58 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+    --border: 0.85 0.02 255;
+    --input: 0.88 0.015 255;
+    --ring: 0.6 0.15 200;
+    --chart-1: 0.6 0.15 200;
+    --chart-2: 0.72 0.18 145;
+    --chart-3: 0.58 0.22 25;
+    --chart-4: 0.78 0.17 90;
+    --chart-5: 0.65 0.15 300;
+    --sidebar: 0.18 0.05 265;
+    --sidebar-foreground: 0.92 0.01 90;
+    --sidebar-primary: 0.72 0.15 200;
+    --sidebar-primary-foreground: 0.1 0.03 265;
+    --sidebar-accent: 0.24 0.06 265;
+    --sidebar-accent-foreground: 0.92 0.01 90;
+    --sidebar-border: 0.28 0.06 265;
+    --sidebar-ring: 0.72 0.15 200;
+    --success: 0.72 0.18 145;
+    --warning: 0.78 0.17 90;
+    --cyan: 0.72 0.15 200;
+  }
+
+  /* Dark mode — deep navy glassmorphism */
+  .dark {
+    --background: 0.1 0.035 265;
+    --foreground: 0.93 0.01 90;
+    --card: 0.14 0.04 265;
+    --card-foreground: 0.93 0.01 90;
+    --popover: 0.14 0.04 265;
+    --popover-foreground: 0.93 0.01 90;
+    --primary: 0.72 0.15 200;
+    --primary-foreground: 0.1 0.03 265;
+    --secondary: 0.2 0.05 265;
+    --secondary-foreground: 0.88 0.01 90;
+    --muted: 0.18 0.04 265;
+    --muted-foreground: 0.55 0.02 90;
+    --accent: 0.72 0.15 200;
+    --accent-foreground: 0.1 0.03 265;
+    --destructive: 0.58 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+    --border: 0.25 0.04 265;
+    --input: 0.2 0.05 265;
+    --ring: 0.72 0.15 200;
+    --chart-1: 0.72 0.15 200;
+    --chart-2: 0.72 0.18 145;
+    --chart-3: 0.58 0.22 25;
+    --chart-4: 0.78 0.17 90;
+    --chart-5: 0.65 0.15 300;
+    --sidebar: 0.08 0.03 265;
+    --sidebar-foreground: 0.93 0.01 90;
+    --sidebar-primary: 0.72 0.15 200;
+    --sidebar-primary-foreground: 0.1 0.03 265;
+    --sidebar-accent: 0.16 0.04 265;
+    --sidebar-accent-foreground: 0.93 0.01 90;
+    --sidebar-border: 0.2 0.04 265;
+    --sidebar-ring: 0.72 0.15 200;
+    --success: 0.72 0.18 145;
+    --warning: 0.78 0.17 90;
+    --cyan: 0.72 0.15 200;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: oklch(1 0 0 / 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid oklch(1 0 0 / 0.08);
+  }
+
+  .glass-card {
+    background: oklch(1 0 0 / 0.04);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid oklch(1 0 0 / 0.1);
+    box-shadow: 0 4px 24px oklch(0 0 0 / 0.3);
+  }
+
+  .dark .glass {
+    background: oklch(1 0 0 / 0.05);
+    border: 1px solid oklch(1 0 0 / 0.08);
+  }
+
+  .dark .glass-card {
+    background: oklch(1 0 0 / 0.04);
+    border: 1px solid oklch(1 0 0 / 0.1);
+    box-shadow: 0 4px 32px oklch(0 0 0 / 0.5);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px oklch(0.72 0.15 200 / 0.25);
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.72 0.15 200),
+      oklch(0.85 0.1 190)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-mesh {
+    background: radial-gradient(
+        ellipse at 20% 50%,
+        oklch(0.72 0.15 200 / 0.06) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse at 80% 20%,
+        oklch(0.72 0.18 145 / 0.04) 0%,
+        transparent 50%
+      );
+  }
+}
